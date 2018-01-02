@@ -17,4 +17,3 @@ innerSum sum [] = sum
 innerSum sum [x] = sum
 innerSum sum (x:xs) = if x == head xs then innerSum (sum + x) xs 
                                   else innerSum (sum) xs 
-                            
