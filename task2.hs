@@ -3,7 +3,7 @@
 -- The third row's difference is 6.
 
 import Data.List
-import Test.QuickCheck
+import Test.HUnit
 
 day2 :: Integral a => [a] -> a
 day2 x = (sumDifference(listMin x))
@@ -27,3 +27,15 @@ diffrence xs = maximum xs - minimum xs
 convert :: Integral a => a -> [a]
 convert 0 = []
 convert x = convert (x `div` 10) ++ [x `mod` 10]
+
+-- Tests
+main :: IO Counts
+main =  runTestTT tests
+
+testUnit :: (Eq a, Show a) => String ->  a -> a -> Test
+testUnit s x y  = TestCase (assertEqual s x (y) )
+
+tests :: Test
+tests = TestList [
+ (testUnit "test" 18 (day2 [5195,753,2468]))
+ ]
