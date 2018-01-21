@@ -22,3 +22,23 @@ increment :: (Num a, Eq a) => a -> [a] -> [a]
 increment _ [] = []
 increment a (x:xs) = if a == 1 then (x+1):increment (a-1) xs
                                 else x:increment (a-1) xs
+
+-- hUnit test
+main :: IO Counts
+main =  runTestTT tests
+
+testUnit :: (Eq a, Show a) => String ->  a -> a -> Test
+testUnit s x y  = TestCase (assertEqual s x (y) )
+
+tests :: Test
+tests = TestList [
+ (testUnit "test" 1 (day1 1123)),
+ (testUnit "test" 1 (day1 1)), 
+ (testUnit "test" 0 (day1 12)), 
+ (testUnit "test" 4 (day1 22)), 
+ (testUnit "test" 3 (day1 1122)), 
+ (testUnit "test" 4 (day1 1111)), 
+ (testUnit "test" 1 (day1 0110)), 
+ (testUnit "test" 1 (day1 0112)),
+ (testUnit "test" 2 (day1 2111))
+ ]
