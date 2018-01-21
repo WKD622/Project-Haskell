@@ -37,5 +37,8 @@ testUnit s x y  = TestCase (assertEqual s x (y) )
 
 tests :: Test
 tests = TestList [
- (testUnit "test" 18 (day2 [5195,753,2468]))
+ (testUnit "test" 18 (day2 [5195,753,2468])),
+ (testUnit "test" 0 (day2 [11,11,11])),
+ (testUnit "test" 0 (day2 [1,1,1])),
+ (testUnit "test" 4 (day2 [12,21,13]))
  ]
