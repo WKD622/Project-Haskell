@@ -14,6 +14,3 @@ isSame :: [Char] -> [Char] -> Bool
 isSame a b = if a == b then True 
                         else False
 
-
-
-

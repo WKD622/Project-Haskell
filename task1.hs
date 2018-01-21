@@ -1,4 +1,4 @@
-
+import Test.HUnit
 day1 :: (Integral a, Eq a) => a -> a
 day1 x = headSum (convert x)
 
